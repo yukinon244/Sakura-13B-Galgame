@@ -16,6 +16,7 @@ datas += copy_metadata('accelerate')
 datas += copy_metadata('pyyaml')
 datas += copy_metadata('xformers')
 binaries = collect_dynamic_libs('bitsandbytes')
+print(binaries)
 
 package_path = get_package_paths('llama_cpp')[0]
 datas += collect_data_files('llama_cpp')
