@@ -66,8 +66,11 @@ jobs:
 
       - name: Build
         id: pyinstaller_build
+        shell: powershell
         run: |
           pyinstaller --clean --noconfirm server.spec
+          ls .\dist\server\_internal\bitsandbytes
+          
       - name: Determine tag name
         id: tag
         shell: bash
