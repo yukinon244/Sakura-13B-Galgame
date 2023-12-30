@@ -41,12 +41,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: json
-        id: json
-        uses: example/action@v1
-        with:
-          input-json: '{"12.1.0": "121", "11.8.0": "118"}'
-
       - uses: Jimver/cuda-toolkit@v0.2.11
         id: cuda-toolkit
         with:
