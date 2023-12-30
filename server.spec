@@ -16,7 +16,9 @@ datas += copy_metadata('accelerate')
 datas += copy_metadata('pyyaml')
 datas += copy_metadata('xformers')
 binaries = collect_dynamic_libs('bitsandbytes')
-print(binaries)
+
+binaries += collect_dynamic_libs('torch')
+datas += collect_data_files('torch')
 
 package_path = get_package_paths('llama_cpp')[0]
 datas += collect_data_files('llama_cpp')
@@ -34,6 +36,8 @@ datas += collect_data_files('xformers')
 
 hiddenimports = []
 hiddenimports.append('xformers')
+hiddenimports.append("autogptq_cuda_256")
+hiddenimports.append("autogptq_cuda_64")
 
 a = Analysis(
     ['server.py'],
@@ -48,6 +52,8 @@ a = Analysis(
     noarchive=False,
     module_collection_mode={
         # requires source .py files for JIT
+        'torch': 'pyz+py',
+        'auto_gptq': 'pyz+py',
         'bitsandbytes': 'pyz+py',
         'transformers': 'pyz+py',
         'datasets': 'pyz+py',
