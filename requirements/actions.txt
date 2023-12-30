@@ -10,5 +10,6 @@ transformers==4.33.2
 sentencepiece
 bitsandbytes==0.40.2
 xformers==0.0.22.post7
+accelerate
 scipy
 numpy
