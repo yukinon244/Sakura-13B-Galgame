@@ -53,7 +53,6 @@ a = Analysis(
     module_collection_mode={
         # requires source .py files for JIT
         'torch': 'pyz+py',
-        'auto_gptq': 'pyz+py',
         'bitsandbytes': 'pyz+py',
         'transformers': 'pyz+py',
         'datasets': 'pyz+py',
